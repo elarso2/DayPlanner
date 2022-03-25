@@ -17,7 +17,7 @@ saveBtnEl.on("click", function () {
 //grabbing time from row elements, and splitting string to obtain just the hour portion of the HTML text
 for (a = 0; a < 10; a++) {
   var timeRowCurrent = $(".hour")[a].innerHTML;
-  console.log(timeRowCurrent);
+  //   console.log(timeRowCurrent);
   var currentTime = timeRowCurrent.substr(0, 2);
   console.log(currentTime);
   //   var currentTime = [];
@@ -35,7 +35,7 @@ function timeCompare() {
   } else {
     eventColorEl.className += "past";
   }
-  console.log(moment().format("h"));
+  console.log("the hour element of moment: " + moment().format("h"));
 }
-
+//^^ able to pull moment hour, so problem is with either the comparison, or the adding class
 timeCompare();
