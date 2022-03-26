@@ -1,17 +1,25 @@
-//adding in the current date and time
+//adding in the current date
 var today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY"));
 
-var time = moment();
-$("#currentTime").text(time.format("h:mm a"));
+// dynamically updating clock for the current time
+function time() {
+  var clock = moment();
+  $("#currentTime").text(clock.format("h:mm a"));
+}
+
+time();
+setInterval(time, 1000);
 
 //allowing user to input an event item
-var eventInput = "";
+// function eventStorage() {}
+// var eventInput = "";
 
 //saving the event item to local storage
 var saveBtnEl = $(".saveBtn");
+var eventInput = document.getElementById("task");
 saveBtnEl.on("click", function () {
-  localStorage.getItem("eventInput");
+  localStorage.setItem("eventInput", input.val());
 });
 
 //grabbing time from row elements, and splitting string to obtain just the hour portion of the HTML text
@@ -27,7 +35,8 @@ for (a = 0; a < 10; a++) {
 
 //compaing hour from above, to the current time collected from moment, to assign a class/style
 function timeCompare() {
-  var eventColorEl = document.getElementsByClassName("event");
+  //need to fix variables being compared and adjusted
+  var eventColorEl = document.getElementById("");
   if (currentTime == moment().format("h")) {
     eventColorEl.className += "present";
   } else if (currentTime > moment().format("h")) {
