@@ -42,14 +42,15 @@ setInterval(time, 1000);
 //compaing row hour, to the current time collected from moment, to assign a class/style
 function timeCompare() {
   var eventColorEl = $("input");
-  var trueTime = parseInt(moment().format("h"));
+  var trueTime = parseInt(moment().format("h")); //turning the true hour into a number
 
   eventColorEl.each(function (i) {
     var timeRowCurrent = $(".hour")[i].innerHTML;
     var currentTime = timeRowCurrent.substr(0, 2);
-    var timeEl = parseInt(currentTime);
+    var timeEl = parseInt(currentTime); //lines 48-50: getting the p input from index, cutting it down to the hour numbers, and turing it into a number
     // console.log("trueTime type: " + typeof trueTime);
     console.log("currentTime: " + parseInt(currentTime));
+    //statements to compare the two times and assign a new class.
     if (timeEl === trueTime) {
       eventColorEl[i].setAttribute("class", "col-10 event present");
       console.log("currentTime equals trueTime");
